@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Systeme_de_coordonnees</class>
+ <widget class="QWidget" name="Systeme_de_coordonnees">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>311</width>
+    <height>121</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>311</width>
+    <height>121</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>311</width>
+    <height>121</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Système de coordonnées</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>50</y>
+     <width>131</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Coordonnéés du repère</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEditX">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>50</y>
+     <width>41</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="maxLength">
+    <number>5</number>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Normal</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>10</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Repère activé:</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="checkBoxRepereActif">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>20</y>
+     <width>32</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>32</width>
+     <height>17</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>32</width>
+     <height>17</height>
+    </size>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEditY">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>49</y>
+     <width>41</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="maxLength">
+    <number>5</number>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Normal</enum>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEditZ">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>50</y>
+     <width>41</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="maxLength">
+    <number>5</number>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Normal</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>50</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>X</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>50</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Y</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>50</y>
+     <width>16</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Z</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonOK">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>90</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>OK</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonAnnuler">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>90</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Annuler</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>164</x>
+     <y>10</y>
+     <width>111</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>position courante</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
