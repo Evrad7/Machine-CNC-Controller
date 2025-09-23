@@ -1,33 +1,30 @@
-from PyQt5.QtWidgets import QMainWindow,QMessageBox, QFileDialog, QAction
+from PyQt5.QtWidgets import QMainWindow, QMessageBox, QFileDialog, QAction
 from PyQt5.QtCore import pyqtSlot, QCoreApplication, QRunnable, QThreadPool, Qt
 from PyQt5.QtGui import QTextCursor, QIcon
-from rapportsAnalyse import Rapports
 
-
-
-import os
-from threading import Thread
-import time
-import math 
 import csv
+import math
+import os
+import re
 import sys
 import threading
-import re
+import time
+from threading import Thread
 
+from machine_cnc_controller.communication.homing import PriseOrigine
+from machine_cnc_controller.communication.monitor import CheckConnexion
+from machine_cnc_controller.communication.serial import Connexion, recherchePort
+from machine_cnc_controller.utils.constants import TAILLE_BUFFER_RX
 
-from messageBoxG import MessageBoxG , activerLaCase
-from configurateur import Configurateur
-from tml_stream import *
-from  TML_sender_gcode_ui import Ui_mainWindow
-from tml_stream import *
-from priseOrigine import PriseOrigine
-from throbber_arret_gravure import Throbber
-from check_connexion import CheckConnexion
+from .configurator import Configurateur
+from .generated.main_window_ui import Ui_mainWindow
+from .message_box import MessageBoxG, activerLaCase
+from .reports import Rapports
+from .throbber import Throbber
 
 
 INTERVAL_DE_RAPPORT=1
 
-TAILLE_BUFFER_RX=128
 TX=""
 RAPPORTS=[]
 plainTextEditConsole=[]

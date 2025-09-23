@@ -1,9 +1,12 @@
-from configurateur_ui import Ui_Form
+"""Dialog allowing the user to inspect and tweak GRBL configuration values."""
 
-from PyQt5.QtWidgets import QMainWindow, QListWidget, QMessageBox
+import csv
+
 from PyQt5.QtCore import pyqtSlot
 from PyQt5.QtGui import QTextCursor
-import csv
+from PyQt5.QtWidgets import QListWidget, QMainWindow, QMessageBox
+
+from .generated.configurator_ui import Ui_Form
 
 class Configurateur(QMainWindow, Ui_Form):
 	def __init__(self, connexion, output, labelUnite_):

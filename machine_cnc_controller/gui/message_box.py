@@ -1,9 +1,12 @@
-from PyQt5.QtWidgets import  QMainWindow, QApplication, QMessageBox
-from PyQt5.QtCore import pyqtSlot
-from PyQt5.QtGui import QIcon
+"""Dialog allowing the user to edit work coordinate offsets."""
+
 import sys
 
-from messageBoxG_ui import Ui_Systeme_de_coordonnees
+from PyQt5.QtCore import pyqtSlot
+from PyQt5.QtGui import QIcon
+from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
+
+from .generated.message_box_ui import Ui_Systeme_de_coordonnees
 
 class MessageBoxG(QMainWindow, Ui_Systeme_de_coordonnees):
 	def __init__(self, parent):
