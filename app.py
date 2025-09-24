@@ -1,11 +1,6 @@
-from TML_sender_gcode import *
-from PyQt5.QtWidgets import QApplication
-import sys
+"""Convenience entry point for local development."""
+from machine_cnc_controller.application import main
 
-app=QApplication(sys.argv)
-mainWindowSender=MainWindowSender()
 
-mainWindowSender.show()
-
-sys.exit(app.exec_())
-
+if __name__ == "__main__":
+    raise SystemExit(main())
