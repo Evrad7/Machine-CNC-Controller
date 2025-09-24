@@ -6,7 +6,7 @@ from PyQt5.QtCore import pyqtSlot
 from PyQt5.QtGui import QTextCursor
 from PyQt5.QtWidgets import QListWidget, QMainWindow, QMessageBox
 
-from .generated.configurator_ui import Ui_Form
+from ..forms.configurator_ui import Ui_Form
 
 class Configurateur(QMainWindow, Ui_Form):
 	def __init__(self, connexion, output, labelUnite_):

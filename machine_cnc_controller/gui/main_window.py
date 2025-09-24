@@ -1,7 +1,3 @@
-from PyQt5.QtWidgets import QMainWindow, QMessageBox, QFileDialog, QAction
-from PyQt5.QtCore import pyqtSlot, QCoreApplication, QRunnable, QThreadPool, Qt
-from PyQt5.QtGui import QTextCursor, QIcon
-
 import csv
 import math
 import os
@@ -11,16 +7,21 @@ import threading
 import time
 from threading import Thread
 
+from PyQt5.QtCore import QCoreApplication, QRunnable, QThreadPool, Qt, pyqtSlot
+from PyQt5.QtGui import QIcon, QTextCursor
+from PyQt5.QtWidgets import QAction, QFileDialog, QMainWindow, QMessageBox
+
 from machine_cnc_controller.communication.homing import PriseOrigine
 from machine_cnc_controller.communication.monitor import CheckConnexion
 from machine_cnc_controller.communication.serial import Connexion, recherchePort
+from machine_cnc_controller.resources import image_path
 from machine_cnc_controller.utils.constants import TAILLE_BUFFER_RX
 
-from .configurator import Configurateur
-from .generated.main_window_ui import Ui_mainWindow
-from .message_box import MessageBoxG, activerLaCase
-from .reports import Rapports
-from .throbber import Throbber
+from .dialogs.configurator import Configurateur
+from .dialogs.message_box import MessageBoxG, activerLaCase
+from .dialogs.reports import Rapports
+from .forms.main_window_ui import Ui_mainWindow
+from .widgets.throbber import Throbber
 
 
 INTERVAL_DE_RAPPORT=1
@@ -82,7 +83,7 @@ class MainWindowSender( QMainWindow,  Ui_mainWindow):
 		self.throbber=None#On dédinit le throbber au debut des opérations a None
 		self.fermable=True
 		self.commande_rapport="?".encode()
-		self.pushButtonG54.setIcon(QIcon("images/G54P.PNG"))
+		self.pushButtonG54.setIcon(QIcon(image_path("G54P.PNG")))
 		activerLaCase(self)
 		#self.pushButtonGraverDessiner.setEnabled(False)
 		self.textEditCommande.setReadOnly(True)
@@ -1019,44 +1020,44 @@ class MainWindowSender( QMainWindow,  Ui_mainWindow):
 	@pyqtSlot()
 	def on_pushButtonG54_pressed(self):
 		if self.repereActif=="1":
-			self.pushButtonG54.setIcon(QIcon("images/G54A.PNG"))
+			self.pushButtonG54.setIcon(QIcon(image_path("G54A.PNG")))
 		else:
-			self.pushButtonG54.setIcon(QIcon("images/G5A.PNG"))
+                  self.pushButtonG54.setIcon(QIcon(image_path("G54A.PNG")))
 
 	@pyqtSlot()
 	def on_pushButtonG55_pressed(self):
 
 		if self.repereActif=="2":
-			self.pushButtonG55.setIcon(QIcon("images/G55AP.PNG"))
+			self.pushButtonG55.setIcon(QIcon(image_path("G55AP.PNG")))
 		else:
-			self.pushButtonG55.setIcon(QIcon("images/G55P.PNG"))
+			self.pushButtonG55.setIcon(QIcon(image_path("G55P.PNG")))
 
 	@pyqtSlot()
 	def on_pushButtonG56_pressed(self):
 		if self.repereActif=="3":
-			self.pushButtonG56.setIcon(QIcon("images/G56AP.PNG"))
+			self.pushButtonG56.setIcon(QIcon(image_path("G56AP.PNG")))
 		else:
-			self.pushButtonG56.setIcon(QIcon("images/G56P.PNG"))
+			self.pushButtonG56.setIcon(QIcon(image_path("G56P.PNG")))
 	@pyqtSlot()
 	def on_pushButtonG57_pressed(self):
 		if self.repereActif=="4":
-			self.pushButtonG57.setIcon(QIcon("images/G57AP.PNG"))
+			self.pushButtonG57.setIcon(QIcon(image_path("G57AP.PNG")))
 		else:
-			self.pushButtonG57.setIcon(QIcon("images/G57P.PNG"))
+			self.pushButtonG57.setIcon(QIcon(image_path("G57P.PNG")))
 
 	@pyqtSlot()
 	def on_pushButtonG58_pressed(self):
 		if self.repereActif=="5":
-			self.pushButtonG58.setIcon(QIcon("images/G58AP.PNG"))
+			self.pushButtonG58.setIcon(QIcon(image_path("G58AP.PNG")))
 		else:
-			self.pushButtonG58.setIcon(QIcon("images/G58P.PNG"))
+			self.pushButtonG58.setIcon(QIcon(image_path("G58P.PNG")))
 
 	@pyqtSlot()
 	def on_pushButtonG59_pressed(self):
 		if self.repereActif=="6":
-			self.pushButtonG59.setIcon(QIcon("images/G59AP.PNG"))
+			self.pushButtonG59.setIcon(QIcon(image_path("G59AP.PNG")))
 		else:
-			self.pushButtonG59.setIcon(QIcon("images/G59P.PNG"))
+			self.pushButtonG59.setIcon(QIcon(image_path("G59P.PNG")))
 
 
 
@@ -1064,45 +1065,45 @@ class MainWindowSender( QMainWindow,  Ui_mainWindow):
 	@pyqtSlot()
 	def on_pushButtonG54_released(self):
 		if self.repereActif=="1":
-			self.pushButtonG54.setIcon(QIcon("images/G54A.PNG"))
+			self.pushButtonG54.setIcon(QIcon(image_path("G54A.PNG")))
 		else:
-			self.pushButtonG54.setIcon(QIcon("images/G54.PNG"))
+			self.pushButtonG54.setIcon(QIcon(image_path("G54.PNG")))
 			
 
 	@pyqtSlot()
 	def on_pushButtonG55_released(self):
 
 		if self.repereActif=="2":
-			self.pushButtonG55.setIcon(QIcon("images/G55A.PNG"))
+			self.pushButtonG55.setIcon(QIcon(image_path("G55A.PNG")))
 		else:
-			self.pushButtonG55.setIcon(QIcon("images/G55E.PNG"))
+			self.pushButtonG55.setIcon(QIcon(image_path("G55E.PNG")))
 			
 	@pyqtSlot()
 	def on_pushButtonG56_released(self):
 		if self.repereActif=="3":
-			self.pushButtonG56.setIcon(QIcon("images/G56A.PNG"))
+			self.pushButtonG56.setIcon(QIcon(image_path("G56A.PNG")))
 		else:
-			self.pushButtonG56.setIcon(QIcon("images/G56.PNG"))
+			self.pushButtonG56.setIcon(QIcon(image_path("G56.PNG")))
 	@pyqtSlot()
 	def on_pushButtonG57_released(self):
 		if self.repereActif=="4":
-			self.pushButtonG57.setIcon(QIcon("images/G57A.PNG"))
+			self.pushButtonG57.setIcon(QIcon(image_path("G57A.PNG")))
 		else:
-			self.pushButtonG57.setIcon(QIcon("images/G57.PNG"))
+			self.pushButtonG57.setIcon(QIcon(image_path("G57.PNG")))
 
 
 	@pyqtSlot()
 	def on_pushButtonG58_released(self):
 		if self.repereActif=="5":
-			self.pushButtonG58.setIcon(QIcon("images/G58A.PNG"))
+			self.pushButtonG58.setIcon(QIcon(image_path("G58A.PNG")))
 		else:
-			self.pushButtonG58.setIcon(QIcon("images/G58.PNG"))
+			self.pushButtonG58.setIcon(QIcon(image_path("G58.PNG")))
 	@pyqtSlot()
 	def on_pushButtonG59_released(self):
 		if self.repereActif=="6":
-			self.pushButtonG59.setIcon(QIcon("images/G59A.PNG"))
+			self.pushButtonG59.setIcon(QIcon(image_path("G59A.PNG")))
 		else:
-			self.pushButtonG59.setIcon(QIcon("images/G59.PNG"))
+			self.pushButtonG59.setIcon(QIcon(image_path("G59.PNG")))
 
 
 

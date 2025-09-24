@@ -1,26 +1,19 @@
+"""Custom button updating its icon depending on mouse hover state."""
 
-from PyQt5.QtWidgets import QPushButton
 from PyQt5.QtGui import QIcon
+from PyQt5.QtWidgets import QPushButton
 
-class ButtonG55 (QPushButton):
-	def __init__(self, parent=None):
-
-		super(ButtonG55, self).__init__(parent)
-		self.quitte=True
+from machine_cnc_controller.resources import image_path
 
 
-	def enterEvent(self, event):
-		self.setIcon(QIcon("images/G55E.PNG"))
+class ButtonG55(QPushButton):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.quitte = True
 
-		
-		
-	def leaveEvent(self, event):
-		if self.quitte:
-			self.setIcon(QIcon("images/G55.PNG"))
-		
-		
+    def enterEvent(self, event):  # noqa: N802 (Qt override naming)
+        self.setIcon(QIcon(image_path("G55E.PNG")))
 
-	
-
-	
-
+    def leaveEvent(self, event):  # noqa: N802 (Qt override naming)
+        if self.quitte:
+            self.setIcon(QIcon(image_path("G55.PNG")))

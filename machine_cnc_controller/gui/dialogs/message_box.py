@@ -1,12 +1,21 @@
 """Dialog allowing the user to edit work coordinate offsets."""
 
-import sys
-
 from PyQt5.QtCore import pyqtSlot
 from PyQt5.QtGui import QIcon
-from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
+from PyQt5.QtWidgets import QMainWindow, QMessageBox
 
-from .generated.message_box_ui import Ui_Systeme_de_coordonnees
+from machine_cnc_controller.resources import image_path
+
+from ..forms.message_box_ui import Ui_Systeme_de_coordonnees
+
+_COORDINATE_BUTTONS = {
+        "1": ("pushButtonG54", "G54"),
+        "2": ("pushButtonG55", "G55"),
+        "3": ("pushButtonG56", "G56"),
+        "4": ("pushButtonG57", "G57"),
+        "5": ("pushButtonG58", "G58"),
+        "6": ("pushButtonG59", "G59"),
+}
 
 class MessageBoxG(QMainWindow, Ui_Systeme_de_coordonnees):
 	def __init__(self, parent):
@@ -85,32 +94,15 @@ class MessageBoxG(QMainWindow, Ui_Systeme_de_coordonnees):
 
 def activerLaCase(param, repereAnterieur=None):
 
-	if param.repereActif=="1":
-		param.pushButtonG54.setIcon(QIcon("images/G54A.PNG"))
-	elif param.repereActif=="2":
-		param.pushButtonG55.setIcon(QIcon("images/G55A.PNG"))
-	elif param.repereActif=="3":
-		param.pushButtonG56.setIcon(QIcon("images/G56A.PNG"))
-	elif param.repereActif=="4":
-		param.pushButtonG57.setIcon(QIcon("images/G57A.PNG"))
-	elif param.repereActif=="5":
-		param.pushButtonG58.setIcon(QIcon("images/G58A.PNG"))
-	elif param.repereActif=="6":
-		param.pushButtonG59.setIcon(QIcon("images/G59A.PNG"))
+        for repere, (attribute, prefix) in _COORDINATE_BUTTONS.items():
+                bouton = getattr(param, attribute, None)
+                if bouton is None:
+                        continue
 
-	if repereAnterieur!=None:
-		if repereAnterieur=="1":
-			param.pushButtonG54.setIcon(QIcon("images/G54.PNG"))
-		if repereAnterieur=="2":
-			param.pushButtonG55.setIcon(QIcon("images/G55.PNG"))
-		if repereAnterieur=="3":
-			param.pushButtonG56.setIcon(QIcon("images/G56.PNG"))
-		if repereAnterieur=="4":
-			param.pushButtonG57.setIcon(QIcon("images/G57.PNG"))
-		if repereAnterieur=="5":
-			param.pushButtonG58.setIcon(QIcon("images/G58.PNG"))
-		if repereAnterieur=="6":
-			param.pushButtonG59.setIcon(QIcon("images/G59.PNG"))
+                if param.repereActif == repere:
+                        bouton.setIcon(QIcon(image_path(f"{prefix}A.PNG")))
+                elif repereAnterieur == repere:
+                        bouton.setIcon(QIcon(image_path(f"{prefix}.PNG")))
 	
 	
 	
@@ -122,13 +114,4 @@ def activerLaCase(param, repereAnterieur=None):
 
 			
 	
-
-		
-
-if __name__=="__main__":
-	app=QApplication(sys.argv)
-	m=MessageBoxG()
-	m.show()
-	sys.exit(app.exec_())
-
 
